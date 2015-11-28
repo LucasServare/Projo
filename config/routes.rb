@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
 
+
   get "public" => "public#home"
   get "public/home" => "public#home"
+  get "public/new" => "public#new"
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
