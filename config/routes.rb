@@ -1,9 +1,8 @@
 Rails.application.routes.draw do
 
 
-  get "public" => "public#home"
-  get "public/home" => "public#home"
-  get "public/new" => "public#new"
+  root "public#home"
+  match ':controller(/:action(/:id))', :via => :get
 
 
   # The priority is based upon order of creation: first created -> highest priority.

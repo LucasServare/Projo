@@ -1,8 +1,25 @@
-<%= form_for(:user) do |f| %>
+  <h2>New User Signup </h2>
 
-First name:<%= f.text_field(:first_name) %>
-Last name: <%= f.text_field(:last_name) %>
-Email: <%= f.text_field(:email) %>
-Password: <%= f.text_field(:password) %>
+  <%= form_for(:user, :url => {:action => 'create'}) do |f| %>
+    <table>
+      <tr>
+        <th>First Name</th>
+        <td><%= f.text_field(:first_name) %></td>
+      </tr>
+      <tr>
+        <th>Last Name</th>
+        <td><%= f.text_field(:last_name) %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= f.text_field(:email) %></td>
+      </tr>
+      <tr>
+        <th>Email</th>
+        <td><%= f.text_field(:password) %></td>
+      </tr>
+    </table>
 
-<% end %>
+      <%= submit_tag("Create Subject") %>
+
+  <% end %>
