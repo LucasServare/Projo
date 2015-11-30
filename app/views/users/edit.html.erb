@@ -1,4 +1,4 @@
-Your settings:
+Your settings:  
 
 <br>
 <%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
@@ -20,3 +20,5 @@ Your settings:
     <%= submit_tag("Update User") %>
 
 <% end %>
+<br>
+<%= link_to "Prefer to delete your account?", action: "delete", :id => @user.id %>

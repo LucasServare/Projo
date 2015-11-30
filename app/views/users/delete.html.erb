@@ -1,0 +1,17 @@
+<%= link_to("<< Changed your mind?", action: 'edit', id: @user.id) %>
+  <br>
+  <%= form_tag({:action => 'destroy', :id => @user.id}) %>
+    <br>
+    Please review the data you're about to delete:
+    <br>
+    <br>
+
+    First name: <%= @user.first_name %> <br>
+    Last name: <%= @user.last_name %> <br>
+    Email:  <%= @user.email %> <br>
+
+    <br>
+    Are you sure you want to continue?
+    <br>
+    <br>
+  <%= submit_tag("Yes, delete my account.") %>  
