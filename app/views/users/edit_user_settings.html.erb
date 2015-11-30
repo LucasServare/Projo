@@ -1,7 +1,22 @@
 Your settings:
 
+<br>
+<%= form_for(:user, :url => {:action => 'update', :id => @user.id}) do |f| %>
+  <table>
+    <tr>
+      <th>First Name</th>
+      <td><%= f.text_field(:first_name) %></td>
+    </tr>
+    <tr>
+      <th>Last Name</th>
+      <td><%= f.text_field(:last_name) %></td>
+    </tr>
+    <tr>
+      <th>Email</th>
+      <td><%= f.text_field(:email) %></td>
+    </tr>
+  </table>
 
-<%= @user.first_name %>
-<%= @user.last_name %>
-<%= @user.email %>
-<%= @user.password_digest %>
+    <%= submit_tag("Update User") %>
+
+<% end %>

@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   end
 
   def create
-    @user = User.new(signup_params)
+    @user = User.new(user_params)
     if @user.save
       redirect_to(:action => 'edit_user_settings', id: @user.id)
     else
@@ -17,8 +17,17 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(user_params)
+      redirect_to(:action => 'edit_user_settings', id: @user.id)
+    else
+      render('new')
+    end
+  end
+
   private
-    def signup_params
+    def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 
