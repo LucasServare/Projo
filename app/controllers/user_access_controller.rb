@@ -3,6 +3,8 @@ class UserAccessController < ApplicationController
   before_action :confirm_logged_in,
     :except => [:login, :login_attempt, :logout]
 
+  def home
+  end
 
   def login
   end
@@ -40,6 +42,7 @@ class UserAccessController < ApplicationController
         return false #this is for the before_action at the beginning of the controller
       else
         return true
+      end
     end
 
 end
