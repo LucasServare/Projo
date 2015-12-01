@@ -1,10 +1,5 @@
 Rails.application.routes.draw do
 
-
-  get 'user_access/login'
-
-  get 'user_access/logout'
-
   root "public#home"
   match ':controller(/:action(/:id))', :via => [:get, :post]
 

@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       session[:email] = @user.email
-      redirect_to(:controller => 'user_access', :action => 'home', id: @user.id)
+      redirect_to(:controller => 'user_access', :action => 'logged_in_home', id: @user.id)
     else
       render('new')
     end

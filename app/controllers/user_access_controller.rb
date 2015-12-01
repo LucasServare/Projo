@@ -3,7 +3,8 @@ class UserAccessController < ApplicationController
   before_action :confirm_logged_in,
     :except => [:login, :login_attempt, :logout]
 
-  def home
+  def logged_in_home
+    @user = User.find(params[:id])
   end
 
   def login
@@ -21,7 +22,6 @@ class UserAccessController < ApplicationController
     if authorized_user
       session[:user_id] = authorized_user.id
       session[:email] = authorized_user.email
-      #mark them as logged in
     else
       flash[:notice] = 'Invalid login.'
       redirect_to(:action =>  'login_attempt')
