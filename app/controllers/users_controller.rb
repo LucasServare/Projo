@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
+    flash[:notice] = 'Successfully updated.'
     if @user.update_attributes(user_params)
       redirect_to(:action => 'edit', id: @user.id)
     else
@@ -32,9 +33,10 @@ class UsersController < ApplicationController
 
   def destroy
     User.find(params[:id]).destroy
+    flash[:notice] = 'Account deleted.'
     redirect_to(:action => 'home', :controller => 'public')
   end
-  
+
   private
     def user_params
       params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation)
