@@ -1,6 +1,5 @@
-Want to create a project?
+Want to <%= link_to("create a project?", :controller => "projects", :action => "new") %>
 <br>
+Or maybe see all of your <%= link_to("projects?", :controller => "projects", :action => "index") %>
 <br>
-
-
 Or would you prefer to <%= link_to("edit your settings?", :controller => "users", :action => "edit", :id => @user.id) %>

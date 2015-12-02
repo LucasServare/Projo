@@ -1,5 +1,17 @@
 Rails.application.routes.draw do
 
+  get 'projects/new'
+
+  get 'projects/create'
+
+  get 'projects/edit'
+
+  get 'projects/update'
+
+  get 'projects/delete'
+
+  get 'projects/destroy'
+
   root "public#home"
   match ':controller(/:action(/:id))', :via => [:get, :post]
 
