@@ -11,8 +11,9 @@
     <% if !flash[:notice].blank? %>
     <%= flash[:notice] %>
     <% end %>
-    <%= yield %>
     <br>
+    <br>
+    <%= yield %>
 
   </body>
 </html>

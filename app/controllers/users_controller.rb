@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  
+
   def new
     @user = User.new
   end
@@ -21,12 +21,25 @@ class UsersController < ApplicationController
 
   def update
     @user = User.find(params[:id])
-    flash[:notice] = 'Successfully updated.'
-    if @user.update_attributes(user_params)
-      redirect_to(:action => 'edit', id: @user.id)
-    else
-      render('new')
+    if !params[:new_password].blank? && !params[:password].blank?
+      if @user.authenticate(:password) && params[:new_password] == params[:new_password_confirmation]
+        params[:password] = params[:new_password]
+        if @user.update_attributes(user_params)
+        flash[:notice] = 'Successfully updated.'
+        redirect_to(:action => 'edit', id: @user.id)
+        else
+        flash[:notice] = 'Failed to update.'
+        redirect_to('edit', id: @user.id)
+        end
+      end
     end
+        if @user.update_attributes(user_params)
+          flash[:notice] = 'Successfully updated.'
+          redirect_to(:action => 'edit', id: @user.id)
+        else
+          flash[:notice] = 'Failed to update.'
+          render('edit', id: @user.id)
+        end
   end
 
   def delete
