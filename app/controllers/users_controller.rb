@@ -32,7 +32,7 @@ class UsersController < ApplicationController
 
   def update_password
     @user = User.find(params[:id])
-    if @user.authenticate(params[:current_password
+    if @user.authenticate(params[:current_password]
       puts 'IT WORKED'
       flash[:notice] = 'Updated password.'
       redirect_to(:action => 'edit', id: @user.id)
