@@ -22,9 +22,10 @@ class UserAccessController < ApplicationController
     if authorized_user
       session[:user_id] = authorized_user.id
       session[:email] = authorized_user.email
+      redirect_to(:action => "logged_in_home", :id => authorized_user.id)
     else
-      flash[:notice] = 'Invalid login.'
-      redirect_to(:action =>  'login_attempt')
+      flash[:notice] = "Invalid login."
+      redirect_to(:action =>  "login")
     end
   end
 
