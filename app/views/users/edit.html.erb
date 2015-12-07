@@ -34,9 +34,11 @@ Your settings:
       <th>Confirm Password</th>
       <td><%= f.password_field(:password_confirmation) %></td>
     </tr>
+  </table>
     <%= submit_tag("Update Password") %>
 
 <% end %>
 
 <br>
+
 <%= link_to "Prefer to delete your account?", action: "delete", :id => @user.id %>
