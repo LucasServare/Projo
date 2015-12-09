@@ -2,6 +2,7 @@
 <% @projects.each do |project| %>
     <tr>
       <td><%= project.name %></td>
+      <td><%= project.creator_id %> </td>
       <td>
         <%= link_to("Edit", {:action => 'edit', :id => project.id}) %>
         <%= link_to("Delete", {:action => 'delete', :id => project.id}) %>

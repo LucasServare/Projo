@@ -32,18 +32,7 @@ class UserAccessController < ApplicationController
   def logout
     session[:user_id] = nil
     session[:email] = nil
+    redirect_to(:controller => 'public', :action =>  "home")
   end
-
-  private
-
-    def confirm_logged_in
-      unless session[:user_id]
-        flash[:notice] = 'Please log in first.'
-        redirect_to(:action => 'login')
-        return false #this is for the before_action at the beginning of the controller
-      else
-        return true
-      end
-    end
 
 end
