@@ -2,6 +2,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
+    @own_projects = Project.where('creator_id' == session[:user_id]) 
   end
 
   def new
@@ -11,7 +12,7 @@ class ProjectsController < ApplicationController
 
   def create
     @project = Project.new(project_params)
-    @project.save
+    @project.update_attribute('creator_id', session[:user_id] ) #Need a better way to do this. Don't need to make 2 database calls.
     if @project.save
       flash[:notice] = 'Project successfully created.'
       redirect_to(:action => 'index')

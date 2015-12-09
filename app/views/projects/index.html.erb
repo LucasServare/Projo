@@ -1,12 +1,34 @@
+Projects you're a part of:
+<br>
 <table>
+  <tr>
+    <td> Project Name </td>
+    <td> Owner </td>
+  </tr>
 <% @projects.each do |project| %>
     <tr>
       <td><%= project.name %></td>
-      <td><%= project.creator_id %> </td>
+      <td><%= User.find(project.creator_id).name %> </td>
       <td>
         <%= link_to("Edit", {:action => 'edit', :id => project.id}) %>
-        <%= link_to("Delete", {:action => 'delete', :id => project.id}) %>
       </td>
     </tr>
     <% end %>
   </table>
+<br>
+Projects you've created:
+<br>
+  <table>
+    <tr>
+      <td> Project Name </td>
+    </tr>
+  <% @own_projects.each do |project| %>
+      <tr>
+        <td><%= project.name %></td>
+        <td>
+          <%= link_to("Edit", {:action => 'edit', :id => project.id}) %>
+          <%= link_to("Delete", {:action => 'delete', :id => project.id}) %>
+        </td>
+      </tr>
+      <% end %>
+    </table>
