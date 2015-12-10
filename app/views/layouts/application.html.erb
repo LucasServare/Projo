@@ -8,10 +8,11 @@
   </head>
 
   <body>
-    <% if !flash[:notice].blank? %>
-    <%= flash[:notice] %>
-    <% end %>
-    <%= yield %>
-
+    <div class="container-fluid">
+      <% if !flash[:notice].blank? %>
+      <%= flash[:notice] %>
+      <% end %>
+      <%= yield %>
+    </div>
   </body>
 </html>
