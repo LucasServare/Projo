@@ -1,2 +1,13 @@
-<h1>Projects#delete</h1>
-<p>Find me in app/views/projects/delete.html.erb</p>
+<%= link_to("<< Changed your mind?", action: 'index', id: @user.id) %>
+  <br>
+  <%= form_tag({:action => 'destroy', :id => @project.id}) %>
+    <br>
+    Please review the project you're about to delete:
+    <br>
+
+    <br>
+    <br>
+    Are you sure you want to continue?
+    <br>
+    <br>
+  <%= submit_tag("Yes, delete this project.") %>

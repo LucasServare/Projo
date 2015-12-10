@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    @own_projects = Project.where('creator_id' == session[:user_id]) 
+    @own_projects = Project.where('creator_id' == session[:user_id])
   end
 
   def new
@@ -29,9 +29,14 @@ class ProjectsController < ApplicationController
   end
 
   def delete
+    @project = Project.find(params[:id])
+    @user = User.find(session[:user_id])
   end
 
   def destroy
+    Project.find(params[:id]).destroy
+    flash[:notice] = 'Project deleted.'
+    redirect_to(action: 'index')
   end
 
   private
