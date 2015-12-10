@@ -23,9 +23,18 @@ class ProjectsController < ApplicationController
   end
 
   def edit
+    @project = Project.find(params[:id])
   end
 
   def update
+    @project = Project.find(params[:id])
+        if @project.update_attributes(project_params)
+          flash[:notice] = 'Successfully updated.'
+          redirect_to(:action => 'index', id: session[:user_id])
+        else
+          flash[:notice] = 'Failed to update.'
+          render('edit', id: @project.id)
+        end
   end
 
   def delete

@@ -1,2 +1,14 @@
-<h1>Projects#edit</h1>
-<p>Find me in app/views/projects/edit.html.erb</p>
+Edit this project:
+<br>
+<br>
+<%= form_for(:project, :url => {:action => 'update', :id => @project.id}) do |f| %>
+  <table>
+    <tr>
+      <th>Name</th>
+      <td><%= f.text_field(:name) %></td>
+    </tr>
+  </table>
+<br>
+    <%= submit_tag("Update Project") %>
+
+<% end %>
