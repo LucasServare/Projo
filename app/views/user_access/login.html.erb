@@ -1,12 +1,27 @@
-<div class="form-group">
-<%= form_tag(:action  => 'login_attempt') do %>
-  <table>
-    <tr>
-      <td> Email: <%= text_field_tag(:email) %> </td> <br>
-    </tr>
-      <td> Password: <%= password_field_tag(:password) %> </td>
-    </tr>
-  </table>
-  <%= submit_tag('Log in') %>
-<% end %>
-</div>
+<form>
+  <div class="form-horizontal">
+    <center>
+    <%= form_tag(:action  => 'login_attempt') do %>
+        <label for="EmailInputLabel">Email</label>
+        <%= text_field_tag(:email, nil, id: 'EmailInput', placeholder: 'Email') %> <br>
+        <label for="PasswordInputLabel">Password</label>
+        <%= password_field_tag(:password, nil, id:'PasswordInput', placeholder: 'Password') %> <br>
+        <%= submit_tag('Log in', class: "btn btn-default") %>
+      <% end %>
+    </center>
+  </div>
+</form>
+
+
+<!-- <form>
+  <div class="form-group">
+    <label for="EmailInput">Email address</label>
+    <input type="email" class="form-control" id="EmailInput" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <label for="PasswordInput">Password</label>
+    <input type="password" class="form-control" id="PasswordInput" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>
+-->
