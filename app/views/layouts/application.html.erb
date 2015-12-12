@@ -9,7 +9,11 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>
+    <% if session[:user_id] %>
+      <%= render 'layouts/logged_in_header' %>
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>
     <div class="container">
       <% if !flash[:notice].blank? %>
       <%= flash[:notice] %>

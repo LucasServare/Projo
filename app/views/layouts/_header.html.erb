@@ -3,5 +3,9 @@
     <div class="navbar-header">
         <%= link_to("Projo", {controller: "public", action: "home"}, class:"navbar-brand" ) %>
     </div>
-    </div>
+       <ul class="nav navbar-nav navbar-right">
+         <li><%= link_to("Sign Up", {controller: "users", action: "new"}) %></li>
+         <li><%= link_to(" Log In", {controller: "user_access", action: "login"}) %></li>
+       </ul>
+  </div>
 </nav>
