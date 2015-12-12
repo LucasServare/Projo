@@ -14,9 +14,9 @@
     <% else %>
       <%= render 'layouts/header' %>
     <% end %>
-    <div class="container text-center">
+    <div class="container">
       <% if !flash[:notice].blank? %>
-      <div class="alert alert-info" role="alert">
+      <div class="alert alert-info  text-center" role="alert">
       <%= flash[:notice] %>
       </div>
     </div>
