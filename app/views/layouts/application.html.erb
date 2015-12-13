@@ -5,13 +5,23 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
+
   </head>
 
   <body>
-    <% if !flash[:notice].blank? %>
-    <%= flash[:notice] %>
+    <% if session[:user_id] %>
+      <%= render 'layouts/logged_in_header' %>
+    <% else %>
+      <%= render 'layouts/header' %>
+    <% end %>
+    <div class="container">
+      <% if !flash[:notice].blank? %>
+      <div class="alert alert-info  text-center" role="alert">
+      <%= flash[:notice] %>
+      </div>
+    </div>
     <% end %>
     <%= yield %>
-
   </body>
+  <%= render 'layouts/footer' %>
 </html>
