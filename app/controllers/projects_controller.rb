@@ -2,16 +2,18 @@ class ProjectsController < ApplicationController
 
   def index
     @projects = Project.all
-    @own_projects = Project.where('creator_id' == session[:user_id])
+    @own_projects = Project.where("creator_id = #{session[:user_id]}")
   end
 
   def new
     @project = Project.new
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:user_id])
   end
 
   def create
-    @project = Project.new(project_params)
+    @user = User.find(session[:user_id])
+    @project = @user.projects.create(project_params)
+    #@project.users = @user
     @project.update_attribute('creator_id', session[:user_id] ) #Need a better way to do this. Don't need to make 2 database calls.
     if @project.save
       flash[:notice] = 'Project successfully created.'

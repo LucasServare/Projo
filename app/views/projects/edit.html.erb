@@ -8,6 +8,8 @@ Edit this project:
       <td><%= f.text_field(:name) %></td>
     </tr>
   </table>
+  id: <%= @project.id %><br>
+  creator_id: <%= @project.creator_id %>
 <br>
     <%= submit_tag("Update Project") %>
 

@@ -1,5 +1,6 @@
 <div class="row">
-  <div class="col-md-4 text-center"><%= link_to image_tag('paper', height: 64, width: 64), :controller => "projects", :action => "new", :user_id => @user.id %><br> <br><%= link_to("Create a new Project", :controller => "projects", :action => "new", :user_id => @user.id) %> </div>
+  <div class="col-md-4 text-center"><%= link_to image_tag('paper', height: 64, width: 64), :controller => "projects", :action => "new", :user_id => @user.id %>
+  <br> <br><%= link_to("Create a new Project", :controller => "projects", :action => "new", :user_id => @user.id) %> </div>
   <div class="col-md-4 text-center"><%= link_to image_tag('folder', height: 64, width: 64), :controller => "projects", :action => "index" %> <br><br>
   <%= link_to("View All Projects", :controller => "projects", :action => "index") %></div>
   <div class="col-md-4 text-center">
