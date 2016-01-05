@@ -1,17 +1,17 @@
 class ProjectsController < ApplicationController
 
   def index
-    @projects = Project.all
+    @projects = current_user.projects
     @own_projects = Project.where("creator_id = #{session[:user_id]}")
   end
 
   def new
     @project = Project.new
-    @user = User.find(params[:user_id])
+    @user = current_user
   end
 
   def create
-    @user = User.find(session[:user_id])
+    @user = current_user
     @project = @user.projects.create(project_params)
     @project.update_attribute('creator_id', session[:user_id] ) #Need a better way to do this. Don't need to make 2 database calls.
     if @project.save
@@ -40,7 +40,7 @@ class ProjectsController < ApplicationController
 
   def delete
     @project = Project.find(params[:id])
-    @user = User.find(session[:user_id])
+    @user = current_user
   end
 
   def destroy
