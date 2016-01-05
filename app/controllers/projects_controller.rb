@@ -44,9 +44,15 @@ class ProjectsController < ApplicationController
   end
 
   def destroy
-    Project.find(params[:id]).destroy
-    flash[:notice] = 'Project deleted.'
-    redirect_to(action: 'index')
+    @project = Project.find(params[:id])
+    if current_user.id == @project.creator_id
+      Project.find(params[:id]).destroy
+      flash[:notice] = 'Project deleted.'
+      redirect_to(action: 'index')
+    else
+      flash[:notice] = 'Sorry, only the creator can delete a project.'
+      redirect_to(:back)
+    end
   end
 
   private
