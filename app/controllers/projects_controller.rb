@@ -13,7 +13,6 @@ class ProjectsController < ApplicationController
   def create
     @user = User.find(session[:user_id])
     @project = @user.projects.create(project_params)
-    #@project.users = @user
     @project.update_attribute('creator_id', session[:user_id] ) #Need a better way to do this. Don't need to make 2 database calls.
     if @project.save
       flash[:notice] = 'Project successfully created.'
