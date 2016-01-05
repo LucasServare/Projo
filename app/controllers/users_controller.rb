@@ -11,6 +11,7 @@ class UsersController < ApplicationController
       session[:email] = @user.email
       redirect_to(:controller => 'user_access', :action => 'logged_in_home', id: @user.id)
     else
+      flash[:notice] = 'Please ensure your passwords match.'
       render('new')
     end
   end
