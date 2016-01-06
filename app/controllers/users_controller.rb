@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     if @user.save
       session[:user_id] = @user.id
       session[:email] = @user.email
+      WelcomeMailer.welcome_email(@user).deliver
       redirect_to(:controller => 'user_access', :action => 'logged_in_home', id: @user.id)
     else
       flash[:notice] = 'Please ensure your passwords match.'
