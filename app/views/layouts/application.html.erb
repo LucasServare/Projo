@@ -7,7 +7,7 @@
     <%= csrf_meta_tags %>
 
   </head>
-
+<center>
   <body>
     <% if session[:user_id] %>
       <%= render 'layouts/logged_in_header' %>
@@ -22,6 +22,7 @@
     </div>
     <% end %>
     <%= yield %>
+</center>
   </body>
   <%= render 'layouts/footer' %>
 </html>

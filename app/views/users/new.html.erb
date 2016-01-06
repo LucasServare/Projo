@@ -23,11 +23,10 @@
         <td><%= f.password_field(:password_confirmation) %></td>
       </tr>
     </table>
-
-      <%= submit_tag("Create User") %>
+    <br>
+      <%= submit_tag("Create User", class: "btn btn-default") %>
 
   <% end %>
 <br>
 
 <%= link_to "Go back", controller: "public", action: "home" %>
-  

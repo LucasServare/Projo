@@ -17,10 +17,12 @@ Your settings:
     </tr>
   </table>
 
-    <%= submit_tag("Update User") %>
+    <br>
+    <%= submit_tag("Update User", class: "btn btn-default") %>
+    <br>
 
 <% end %>
-
+<br>
 <%= form_for(:user, :url => {:action => 'update_password', :id => @user.id}) do |f| %>
   <table>
       <th>Current Password</th>
@@ -35,7 +37,8 @@ Your settings:
       <td><%= f.password_field(:password_confirmation) %></td>
     </tr>
   </table>
-    <%= submit_tag("Update Password") %>
+  <br>
+    <%= submit_tag("Update Password", class: "btn btn-default") %>
 
 <% end %>
 
