@@ -1,0 +1,16 @@
+  <h3> Add an item to your to-do list. </h3>
+
+  <%= form_for(:to_do_item, :url => {:action => 'create'}) do |f| %>
+    <table>
+      <tr>
+
+        <td><%= f.text_field(:content) %></td>
+      </tr>
+    </table>
+    <br>
+      <%= submit_tag("Add Item", class: "btn btn-default") %>
+
+  <% end %>
+<br>
+
+<%= link_to "Go back", controller: "public", action: "home" %>
