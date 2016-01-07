@@ -11,7 +11,7 @@ class ToDoItemsController < ApplicationController
       flash[:notice] = 'Item successfully created.'
       redirect_to :back
     else
-      flash[:notice] = 'Error saving your project.'
+      flash[:notice] = 'Error saving your item.'
       render('new')
     end
   end
