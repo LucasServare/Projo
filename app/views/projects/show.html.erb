@@ -1,6 +1,3 @@
-Project:
-<br>
-<br>
 <table>
   <tr>
     <th> Project Name </th>
@@ -16,14 +13,30 @@ Project:
   </table>
 <br>
 
+<br>
+Users invited to this project:
+<br>
+<br>
+<table>
+  <th> Project Users </th>
+<% @project.users.each do |user| %>
+<tr><td>
+  <%=  user.name %>
+</td></tr>
+<% end %>
+</table>
+
+<br>
+<br>
+<br>
 <%= form_for(:project, :url => {:action => 'add_user', :id => @project.id}) do |f| %>
 
-  Add a user to this project?
+  Want to add a user to this project?
+  <br>
   <br>
   Enter their email: <%= email_field_tag(:email, "email@example.com") %>
   <br>
   <br>
-  <br>
 
-<%= submit_tag("Find this user", class: "btn btn-default") %>
+<%= submit_tag("Add this user", class: "btn btn-default") %>
 <% end %>
