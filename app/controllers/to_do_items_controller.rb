@@ -16,6 +16,10 @@ class ToDoItemsController < ApplicationController
     end
   end
 
+  def index
+    @to_do_items = current_user.to_do_items
+  end
+
   private
     def to_do_item_params
       params.require(:to_do_item).permit(:content, :creator_id)

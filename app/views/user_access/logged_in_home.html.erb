@@ -1,28 +1,32 @@
 <div class="row">
-  <div class="col-md-4 text-center"><%= link_to image_tag('paper', height: 64, width: 64), :controller => "projects", :action => "new", :user_id => @user.id %>
+  <div class="col-md-6 text-center"><%= link_to image_tag('paper', height: 64, width: 64), :controller => "projects", :action => "new", :user_id => @user.id %>
   <br>
   <br>
   <%= link_to("Create a new Project", :controller => "projects", :action => "new", :user_id => @user.id) %>
   </div>
 
-  <div class="col-md-4 text-center"><%= link_to image_tag('folder', height: 64, width: 64), :controller => "projects", :action => "index" %>
+  <div class="col-md-6 text-center"><%= link_to image_tag('folder', height: 64, width: 64), :controller => "projects", :action => "index" %>
   <br>
   <br>
   <%= link_to("View/Manage Projects", :controller => "projects", :action => "index") %>
   </div>
+</div>
 
-  <div class="col-md-4 text-center" >
-  <%= link_to image_tag('list', height: 64, width: 64), :controller => "to_do_items", :action => "new"  %>
+<br>
+<br>
+<br>
+
+<div class="row">
+  <div class="col-md-6 text-center" >
+  <%= link_to image_tag('list', height: 64, width: 64), :controller => "to_do_items", :action => "index"  %>
   <br>
   <br>
-  Test
+  <%= link_to("Go to your To-Do List", :controller => "to_do_items", :action => "index") %>
   </div>
 
 
-  <div class="col-md-4 text-center">
-  <br>
-  <br>
-  <%= link_to image_tag('gear', height: 64, width: 64), :controller => "users", :action => "edit", :id => @user.id %>
+  <div class="col-md-6 text-center">
+  <%= link_to image_tag('gear', height: 64, width: 64), :controller => "users", :action => "edit", :id => @user.id%>
   <br>
   <br>
   <%= link_to("Settings", :controller => "users", :action => "edit", :id => @user.id) %>
