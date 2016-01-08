@@ -1,0 +1,17 @@
+Project: 
+<br>
+<br>
+<table>
+  <tr>
+    <th> Project Name </th>
+    <th> Owner </th>
+  </tr>
+    <tr>
+      <td><%= @project.name %></td>
+      <td><%= User.find(@project.creator_id).name %> </td>
+      <td>
+        <%= link_to("Edit", {:action => 'edit', :id => @project.id}) %>
+      </td>
+    </tr>
+  </table>
+<br>

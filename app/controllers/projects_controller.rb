@@ -5,6 +5,10 @@ class ProjectsController < ApplicationController
     @own_projects = Project.where("creator_id = #{session[:user_id]}")
   end
 
+  def show
+    @project = Project.find(params[:id])
+  end
+
   def new
     @project = Project.new
     @user = current_user

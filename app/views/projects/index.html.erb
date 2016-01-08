@@ -14,6 +14,9 @@ Projects you're a part of:
       <td>
         <%= link_to("Edit", {:action => 'edit', :id => project.id}) %>
       </td>
+      <td>
+        <%= link_to("Show", {:action => 'show', :id => project.id}) %>
+      </td>
     </tr>
     <% end %>
   </table>
