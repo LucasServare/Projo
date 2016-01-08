@@ -1,4 +1,4 @@
-Project: 
+Project:
 <br>
 <br>
 <table>
@@ -15,3 +15,15 @@ Project:
     </tr>
   </table>
 <br>
+
+<%= form_for(:project, :url => {:action => 'add_user', :id => @project.id}) do |f| %>
+
+  Add a user to this project?
+  <br>
+  Enter their email: <%= email_field_tag(:email, "email@example.com") %>
+  <br>
+  <br>
+  <br>
+
+<%= submit_tag("Find this user", class: "btn btn-default") %>
+<% end %>

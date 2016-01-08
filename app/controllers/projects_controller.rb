@@ -59,6 +59,14 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def add_user
+    user_to_add = User.where("email = '#{params[:email]}'") #Don't forget to sanitize this!
+    project = Project.find(params[:id])
+    project.users << user_to_add
+    flash[:notice] = 'User successfully added.'
+    redirect_to :back
+  end
+
   private
     def project_params
       params.require(:project).permit(:name, :creator_id)
