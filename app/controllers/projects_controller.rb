@@ -60,11 +60,16 @@ class ProjectsController < ApplicationController
   end
 
   def add_user
-    user_to_add = User.where("email = '#{params[:email]}'") #Don't forget to sanitize this!
+    user_to_add = User.find_by("email = '#{params[:email]}'") #Don't forget to sanitize this!
     project = Project.find(params[:id])
-    project.users << user_to_add
-    flash[:notice] = 'User successfully added.'
-    redirect_to :back
+    if project.users.ids.exclude?(user_to_add.id) #I'm sure there's a much better way to do this, but I can't do this with validations without using a third through model.
+      project.users << user_to_add
+      flash[:notice] = 'User successfully added.'
+      redirect_to :back
+    else
+      flash[:notice] = 'Sorry, that user is already a part of this project.'
+      redirect_to :back
+    end
   end
 
   private
