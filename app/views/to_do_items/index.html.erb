@@ -3,25 +3,24 @@
 Your To-Do List:
 <br>
 <br>
+
 <table>
   <tr>
     <th> Item Name </th>
+    <th> Completed? </th>
   </tr>
   <% if @to_do_items.count >= 1
       @to_do_items.each do |item| %>
-    <tr>
-      <td><%= item.content %></td>
-      <td>
+  <tr>
+      <td> <%= item.content %> </td>
+      <td><center> <%= item.completed ? 'Yes' : 'No' %> </center></td>
+      <td> <%= link_to("Edit", {:action => 'edit', :id => item.id}) %> </td>
+      <td> <%= link_to("Delete", {:action => 'delete', :id => item.id}) %> </td>
+  </tr>
+    <% end %>
+  <% end %>
+</table>
 
-        <%= link_to("Edit", {:action => 'edit', :id => item.id}) %>
-      </td>
-        <td>
-        <%= link_to("Delete", {:action => 'delete', :id => item.id}) %>
-      </td>
-    </tr>
-    <% end %>
-    <% end %>
-  </table>
 <br>
 <br>
 <br>
