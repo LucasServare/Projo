@@ -11,9 +11,13 @@ class UsersController < ApplicationController
       session[:email] = @user.email
       WelcomeMailer.welcome_email(@user).deliver
       redirect_to(:controller => 'user_access', :action => 'logged_in_home', id: @user.id)
+      flash[:notice] = 'Welcome to Projo!'
+    elsif @user.errors.any?
+      flash[:notice] = "Sorry, please fix the following errors: #{@user.errors.full_messages}"
+      redirect_to action: "new"
     else
-      flash[:notice] = 'Please ensure your passwords match.'
-      render('new')
+      flash[:notice] = "Sorry, something went wrong. Please try again."
+      redirect_to action: "new"
     end
   end
 
