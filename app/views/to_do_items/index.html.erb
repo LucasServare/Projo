@@ -6,9 +6,9 @@ Your To-Do List:
 
 <table>
   <tr>
-    <th> Item Name </th>
-    <th> Completed? </th>
-    <th> Date Added </th>
+    <th> <%= sortable "content", "Content" %> </th>
+    <th> <%= sortable "completed" %></th>
+    <th> <%= sortable "created_at", "Date Added" %></th>
   </tr>
   <% if @to_do_items.count >= 1
       @to_do_items.each do |item| %>

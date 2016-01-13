@@ -1,4 +1,10 @@
 class ToDoItemsController < ApplicationController
+  #For sorting table headers
+  helper_method :sort_column, :sort_direction
+
+  def index
+    @to_do_items = current_user.to_do_items.order(sort_column + " " + sort_direction)
+  end
 
   def new
     @to_do_item = ToDoItem.new
@@ -16,12 +22,17 @@ class ToDoItemsController < ApplicationController
     end
   end
 
-  def index
-    @to_do_items = current_user.to_do_items.sort_by &:created_at
-  end
-
   private
     def to_do_item_params
       params.require(:to_do_item).permit(:content, :creator_id)
     end
+
+  def sort_column
+    current_user.to_do_items.column_names.include?(params[:sort]) ? params[:sort] : "name"
+  end
+
+  def sort_direction
+    %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+
 end
