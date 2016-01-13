@@ -1,3 +1,11 @@
 // Place all the styles related to the to_do_items controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.to_do_complete {
+  background-color: green;
+}
+
+.to_do_incomplete {
+  background-color: red;
+}
