@@ -17,7 +17,7 @@ class ToDoItemsController < ApplicationController
   end
 
   def index
-    @to_do_items = current_user.to_do_items
+    @to_do_items = current_user.to_do_items.sort_by &:created_at
   end
 
   private

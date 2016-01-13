@@ -8,12 +8,14 @@ Your To-Do List:
   <tr>
     <th> Item Name </th>
     <th> Completed? </th>
+    <th> Date Added </th>
   </tr>
   <% if @to_do_items.count >= 1
       @to_do_items.each do |item| %>
   <tr>
       <td><div class="<%= item.completed ? 'to_do_complete' : 'to_do_incomplete' %>"> <%= item.content %></div> </td>
       <td><center> <%= item.completed ? 'Yes' : 'No' %> </center></td>
+      <td><%= item.created_at.to_date %></td>
       <td> <%= link_to("Edit", {:action => 'edit', :id => item.id}) %> </td>
       <td> <%= link_to("Delete", {:action => 'delete', :id => item.id}) %> </td>
   </tr>
