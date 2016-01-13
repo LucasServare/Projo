@@ -28,7 +28,7 @@ class ToDoItemsController < ApplicationController
     end
 
   def sort_column
-    current_user.to_do_items.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    current_user.to_do_items.column_names.include?(params[:sort]) ? params[:sort] : "content"
   end
 
   def sort_direction
