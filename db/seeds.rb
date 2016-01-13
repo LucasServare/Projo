@@ -15,4 +15,4 @@ project = user.projects.create(name: "Test Project", creator_id: user.id)
 #Add another user to this project
 project.users  << other_user
 #Create a to do item for the initial user.
-to_do_items = user.to_do_items.create(content: "Test Item")
+to_do_items = user.to_do_items.create(content: "Test Item"), user.to_do_items.create(content: "Test Item2", completed: true)
